@@ -1,11 +1,17 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, } from 'formik';
+import InputLabel from '@material-ui/core/InputLabel';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import FormControl from '@material-ui/core/FormControl';
+import Input from '@material-ui/core/Input';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import Button from '@material-ui/core/Button';
 
 function SignInPage() {
     const history = useHistory();
     return (
-        <div>
+        <div style={{ textAlign: 'center' }}>
             <h1>Ini halaman Sign In</h1>
             <Formik
                 initialValues={{ email: '', password: '' }}
@@ -57,19 +63,47 @@ function SignInPage() {
                         });
                 }}
             >
-                {({ isSubmitting }) => (
+                {({ isSubmitting, values, handleChange }) => (
                     <Form>
                         <div>
-                            <Field type='email' name='email' />
-                            <ErrorMessage name='email' component='div' />
+                            <FormControl>
+                                <InputLabel htmlFor="input-with-icon-adornment">Email</InputLabel>
+                                <Input
+                                    id="email"
+                                    type='text'
+                                    name='email'
+                                    placeholder='Email'
+                                    value={values.email}
+                                    onChange={handleChange}
+                                    startAdornment={
+                                        <InputAdornment position="start">
+                                            <AccountCircle />
+                                        </InputAdornment>
+                                    }
+                                />
+                            </FormControl>
                         </div>
                         <div>
-                            <Field type='password' name='password' />
-                            <ErrorMessage name='password' component='div' />
+                            <FormControl>
+                                <InputLabel htmlFor="input-with-icon-adornment">Password</InputLabel>
+                                <Input
+                                    id="password"
+                                    type='password'
+                                    name='password'
+                                    placeholder='Password'
+                                    value={values.password}
+                                    onChange={handleChange}
+                                    startAdornment={
+                                        <InputAdornment position="start">
+                                            <AccountCircle />
+                                        </InputAdornment>
+                                    }
+                                />
+                            </FormControl>
                         </div>
-                        <button type='submit' disabled={isSubmitting}>
-                            Submit
-                        </button>
+                        <div style={{ marginTop: '10px' }}>
+                            <Button variant="outlined"  ><Input type='submit' disabled={isSubmitting}>Submit</Input></Button>
+                        </div>
                     </Form>
                 )}
             </Formik>

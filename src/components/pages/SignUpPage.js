@@ -1,5 +1,5 @@
 import React from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form,} from 'formik';
 import { useHistory } from 'react-router-dom';
 import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
@@ -76,8 +76,8 @@ function SignUpPage() {
                                     type='text'
                                     name='fullName'
                                     placeholder='Full Name'
-                                    value = {values.fullName}
-                                    onChange = {handleChange}
+                                    value={values.fullName}
+                                    onChange={handleChange}
                                     startAdornment={
                                         <InputAdornment position="start">
                                             <AccountCircle />
@@ -85,21 +85,17 @@ function SignUpPage() {
                                     }
                                 />
                             </FormControl>
-                            </div>
-                           
-                            {/* <Field
-                            />
-                            <ErrorMessage name='fullName' component='div' /> */}
+                        </div>
                         <div>
-                        <FormControl>
+                            <FormControl>
                                 <InputLabel htmlFor="input-with-icon-adornment">Username</InputLabel>
                                 <Input
                                     id="username"
                                     type='text'
-                                name='username'
-                                placeholder='Username'
-                                value = {values.username}
-                                onChange = {handleChange}
+                                    name='username'
+                                    placeholder='Username'
+                                    value={values.username}
+                                    onChange={handleChange}
                                     startAdornment={
                                         <InputAdornment position="start">
                                             <AccountCircle />
@@ -107,18 +103,18 @@ function SignUpPage() {
                                     }
                                 />
                             </FormControl>
-                            </div>
+                        </div>
 
-                            <div>
+                        <div>
                             <FormControl>
                                 <InputLabel htmlFor="input-with-icon-adornment">Email</InputLabel>
                                 <Input
                                     id="email"
                                     type='email'
-                                name='email'
-                                placeholder='email'
-                                value = {values.email}
-                                onChange = {handleChange}
+                                    name='email'
+                                    placeholder='email'
+                                    value={values.email}
+                                    onChange={handleChange}
                                     startAdornment={
                                         <InputAdornment position="start">
                                             <AccountCircle />
@@ -126,18 +122,18 @@ function SignUpPage() {
                                     }
                                 />
                             </FormControl>
-                            </div>
+                        </div>
 
-                            <div>
+                        <div>
                             <FormControl>
                                 <InputLabel htmlFor="input-with-icon-adornment">Password</InputLabel>
                                 <Input
                                     id="password"
                                     type='password'
-                                name='password'
-                                placeholder='password'
-                                value = {values.password}
-                                onChange = {handleChange}
+                                    name='password'
+                                    placeholder='password'
+                                    value={values.password}
+                                    onChange={handleChange}
                                     startAdornment={
                                         <InputAdornment position="start">
                                             <AccountCircle />
@@ -145,33 +141,9 @@ function SignUpPage() {
                                     }
                                 />
                             </FormControl>
-                            </div>
-                        {/* </div>
-                        <div>
-                            <Field
-                        
-                                
-                            />
-                            <ErrorMessage name='username' component='div' />
                         </div>
-
-                        <div>
-                            <Field
-                                
-                            />
-                            <ErrorMessage name='email' component='div' />
-                        </div>
-                        <div>
-                            <Field
-                                
-                            />
-                            <ErrorMessage name='password' component='div' /> */}
-                        {/* </div> */}
-                        {/* <button type='submit' disabled={isSubmitting}>
-                            Submit
-                        </button> */}
-                        <div style = {{marginTop : '10px'}}>
-                         <Button variant="outlined"  ><Input type = 'submit' disabled = {isSubmitting}>Submit</Input></Button>
+                        <div style={{ marginTop: '10px' }}>
+                            <Button variant="outlined"  ><Input type='submit' disabled={isSubmitting}>Submit</Input></Button>
                         </div>
                     </Form>
                 )}
