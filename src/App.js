@@ -10,26 +10,29 @@ import ShoppingListsPage from './components/pages/ShoppingListsPage';
 import PrivateRoute from './components/helpers/PrivateRoute';
 
 function App() {
-    return (
-        <Router>
-            <NavigationBar />
+   return (
+      <Router>
 
-            <Switch>
-                <Route exact path='/'>
-                    <Home />
-                </Route>
-                <Route exact path='/signup'>
-                    <SignUpPage />
-                </Route>
-                <Route exact path='/signin'>
-                    <SignInPage />
-                </Route>
-                <PrivateRoute exact path='/shopping-lists'>
-                    <ShoppingListsPage />
-                </PrivateRoute>
-            </Switch>
-        </Router>
-    );
+
+         <Switch>
+            <Route exact path='/'>
+               <NavigationBar />
+               <Home />
+            </Route>
+            <Route exact path='/signup'>
+               <NavigationBar />
+               <SignUpPage />
+            </Route>
+            <Route exact path='/signin'>
+               <NavigationBar />
+               <SignInPage />
+            </Route>
+            <PrivateRoute exact path='/shopping-lists'>
+               <ShoppingListsPage />
+            </PrivateRoute>
+         </Switch>
+      </Router>
+   );
 }
 
 export default App;
