@@ -1,12 +1,13 @@
 import React from 'react';
-import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import NavigationBar from './components/NavigationBar';
 import Home from './components/pages/Home';
 import SignUpPage from './components/pages/SignUpPage';
 import SignInPage from './components/pages/SignInPage';
+import ShoppingListsPage from './components/pages/ShoppingListsPage';
 
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import PrivateRoute from './components/helpers/PrivateRoute';
 
 function App() {
     return (
@@ -23,6 +24,9 @@ function App() {
                 <Route exact path='/signin'>
                     <SignInPage />
                 </Route>
+                <PrivateRoute exact path='/shopping-lists'>
+                    <ShoppingListsPage />
+                </PrivateRoute>
             </Switch>
         </Router>
     );
