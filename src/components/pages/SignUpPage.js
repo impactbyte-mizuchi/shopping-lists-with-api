@@ -1,6 +1,13 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useHistory } from 'react-router-dom';
+import InputLabel from '@material-ui/core/InputLabel';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import FormControl from '@material-ui/core/FormControl';
+import Input from '@material-ui/core/Input';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import Button from '@material-ui/core/Button';
+
 
 function SignUpPage() {
     const history = useHistory();
@@ -38,6 +45,7 @@ function SignUpPage() {
                     return errors;
                 }}
                 onSubmit={(values) => {
+                    console.log(values)
                     const url = `${process.env.REACT_APP_MOCKAPI_URL}/users`;
 
                     const options = {
@@ -58,44 +66,113 @@ function SignUpPage() {
                         .catch((error) => console.log(error));
                 }}
             >
-                {({ isSubmitting }) => (
-                    <Form>
+                {({ isSubmitting, values, handleChange }) => (
+                    <Form >
                         <div>
-                            <Field
-                                type='text'
-                                name='fullName'
-                                placeholder='Full Name'
+                            <FormControl>
+                                <InputLabel htmlFor="input-with-icon-adornment">FullName</InputLabel>
+                                <Input
+                                    id="fullName"
+                                    type='text'
+                                    name='fullName'
+                                    placeholder='Full Name'
+                                    value = {values.fullName}
+                                    onChange = {handleChange}
+                                    startAdornment={
+                                        <InputAdornment position="start">
+                                            <AccountCircle />
+                                        </InputAdornment>
+                                    }
+                                />
+                            </FormControl>
+                            </div>
+                           
+                            {/* <Field
                             />
-                            <ErrorMessage name='fullName' component='div' />
-                        </div>
+                            <ErrorMessage name='fullName' component='div' /> */}
                         <div>
-                            <Field
-                                type='text'
+                        <FormControl>
+                                <InputLabel htmlFor="input-with-icon-adornment">Username</InputLabel>
+                                <Input
+                                    id="username"
+                                    type='text'
                                 name='username'
                                 placeholder='Username'
+                                value = {values.username}
+                                onChange = {handleChange}
+                                    startAdornment={
+                                        <InputAdornment position="start">
+                                            <AccountCircle />
+                                        </InputAdornment>
+                                    }
+                                />
+                            </FormControl>
+                            </div>
+
+                            <div>
+                            <FormControl>
+                                <InputLabel htmlFor="input-with-icon-adornment">Email</InputLabel>
+                                <Input
+                                    id="email"
+                                    type='email'
+                                name='email'
+                                placeholder='email'
+                                value = {values.email}
+                                onChange = {handleChange}
+                                    startAdornment={
+                                        <InputAdornment position="start">
+                                            <AccountCircle />
+                                        </InputAdornment>
+                                    }
+                                />
+                            </FormControl>
+                            </div>
+
+                            <div>
+                            <FormControl>
+                                <InputLabel htmlFor="input-with-icon-adornment">Password</InputLabel>
+                                <Input
+                                    id="password"
+                                    type='password'
+                                name='password'
+                                placeholder='password'
+                                value = {values.password}
+                                onChange = {handleChange}
+                                    startAdornment={
+                                        <InputAdornment position="start">
+                                            <AccountCircle />
+                                        </InputAdornment>
+                                    }
+                                />
+                            </FormControl>
+                            </div>
+                        {/* </div>
+                        <div>
+                            <Field
+                        
+                                
                             />
                             <ErrorMessage name='username' component='div' />
                         </div>
 
                         <div>
                             <Field
-                                type='email'
-                                name='email'
-                                placeholder='email'
+                                
                             />
                             <ErrorMessage name='email' component='div' />
                         </div>
                         <div>
                             <Field
-                                type='password'
-                                name='password'
-                                placeholder='password'
+                                
                             />
-                            <ErrorMessage name='password' component='div' />
-                        </div>
-                        <button type='submit' disabled={isSubmitting}>
+                            <ErrorMessage name='password' component='div' /> */}
+                        {/* </div> */}
+                        {/* <button type='submit' disabled={isSubmitting}>
                             Submit
-                        </button>
+                        </button> */}
+                        <div style = {{marginTop : '10px'}}>
+                         <Button variant="outlined"  ><Input type = 'submit' disabled = {isSubmitting}>Submit</Input></Button>
+                        </div>
                     </Form>
                 )}
             </Formik>
